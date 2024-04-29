@@ -1,4 +1,4 @@
-#include "steampipe_postgres_fdw.h"
+#include "postgres_postgres_fdw.h"
 #include "common.h"
 #if PG_VERSION_NUM < 120000
 #include "optimizer/var.h"

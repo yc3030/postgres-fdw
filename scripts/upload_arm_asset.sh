@@ -22,6 +22,6 @@ do
 done
 
 # Zip, rename and upload the binary
-gzip build-Darwin/steampipe_postgres_fdw.so
-mv build-Darwin/steampipe_postgres_fdw.so.gz build-Darwin/steampipe_postgres_fdw.so.darwin_arm64.gz
-gh release upload $1 build-Darwin/steampipe_postgres_fdw.so.darwin_arm64.gz
+gzip build-Darwin/postgres_postgres_fdw.so
+mv build-Darwin/postgres_postgres_fdw.so.gz build-Darwin/postgres_postgres_fdw.so.darwin_arm64.gz
+gh release upload $1 build-Darwin/postgres_postgres_fdw.so.darwin_arm64.gz

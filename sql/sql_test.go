@@ -36,7 +36,7 @@ var testCasesgetSQLForTable = map[string]getSQLForTableTest{
   "c1" text,
   "c2" text
 )
-server "steampipe" OPTIONS (table $steampipe_escape$t1$steampipe_escape$)`},
+server "steampipe" OPTIONS (table $postgres_escape$t1$postgres_escape$)`},
 	"quotes in names": {
 		table: "t1",
 		tableSchema: &proto.TableSchema{
@@ -58,7 +58,7 @@ server "steampipe" OPTIONS (table $steampipe_escape$t1$steampipe_escape$)`},
   """c1""" text,
   "c2 ""is"" partially quoted" text
 )
-server "steampipe" OPTIONS (table $steampipe_escape$t1$steampipe_escape$)`},
+server "steampipe" OPTIONS (table $postgres_escape$t1$postgres_escape$)`},
 }
 
 func TestGetSQLForTable(t *testing.T) {

@@ -73,7 +73,7 @@ exit_if_failed
 echo ""
 
 echo "Check if binary is created"
-file build-Linux/steampipe_postgres_fdw.so
+file build-Linux/postgres_postgres_fdw.so
 exit_if_failed
 echo ""
 

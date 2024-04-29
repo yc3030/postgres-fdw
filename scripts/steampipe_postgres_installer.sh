@@ -95,7 +95,7 @@ main() {
       get_postgresql_details $plugin
   fi
 
-  asset_name="steampipe_postgres_${plugin}.pg${PG_VERSION}.${target}"
+  asset_name="postgres_postgres_${plugin}.pg${PG_VERSION}.${target}"
 
   # Generate the URI for the FDW
   if [ "$version" = "latest" ]; then
@@ -120,7 +120,7 @@ main() {
   echo ""
   echo "Download and extraction completed."
   echo ""
-  echo "Installing steampipe_postgres_${plugin} in ${BOLD}$PG_DIR${NORMAL}..."
+  echo "Installing postgres_postgres_${plugin} in ${BOLD}$PG_DIR${NORMAL}..."
   echo ""
   # Get the name of the extracted directory
   ext_dir=$(echo $asset_name | sed 's/\.tar\.gz$//')
@@ -131,13 +131,13 @@ main() {
   EXTDIR=$($PG_CONFIG --sharedir)/extension/
 
   # Copy the files to the PostgreSQL installation directory
-  cp steampipe_postgres_${plugin}.so "$LIBDIR"
-  cp steampipe_postgres_${plugin}.control "$EXTDIR"
-  cp steampipe_postgres_${plugin}--1.0.sql "$EXTDIR"
+  cp postgres_postgres_${plugin}.so "$LIBDIR"
+  cp postgres_postgres_${plugin}.control "$EXTDIR"
+  cp postgres_postgres_${plugin}--1.0.sql "$EXTDIR"
 
   # Check if the files were copied correctly
   if [ $? -eq 0 ]; then
-    echo "Successfully installed steampipe_postgres_${plugin} extension!"
+    echo "Successfully installed postgres_postgres_${plugin} extension!"
     echo ""
     echo "Files have been copied to:"
     echo "- Library directory: ${LIBDIR}"
@@ -145,7 +145,7 @@ main() {
     cd ../
     rm -rf $ext_dir
   else
-    echo "Failed to install steampipe_postgres_${plugin} extension. Please check permissions and try again."
+    echo "Failed to install postgres_postgres_${plugin} extension. Please check permissions and try again."
     exit 1
   fi
 }
@@ -166,7 +166,7 @@ get_postgresql_details() {
   echo "- System architecture:  ${BOLD}$(uname -m)${NORMAL}"
   echo ""
   check_postgresql_version
-  echo "Based on the above, ${BOLD}steampipe_postgres_${PLUGIN}.pg${PG_VERSION}.${target}${NORMAL} will be downloaded, extracted and installed at: ${BOLD}$PG_DIR${NORMAL}"
+  echo "Based on the above, ${BOLD}postgres_postgres_${PLUGIN}.pg${PG_VERSION}.${target}${NORMAL} will be downloaded, extracted and installed at: ${BOLD}$PG_DIR${NORMAL}"
 }
 
 check_postgresql_version(){

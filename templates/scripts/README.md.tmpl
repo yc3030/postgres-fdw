@@ -23,17 +23,17 @@ Before proceeding with the installation, ensure that you have:
 
    ```sql
    -- Drop the extension if it already exists
-   DROP EXTENSION IF EXISTS steampipe_postgres_{{.Plugin}} CASCADE;
+   DROP EXTENSION IF EXISTS postgres_postgres_{{.Plugin}} CASCADE;
 
    -- Create the extension
-   CREATE EXTENSION IF NOT EXISTS steampipe_postgres_{{.Plugin}};
+   CREATE EXTENSION IF NOT EXISTS postgres_postgres_{{.Plugin}};
 
    -- Drop the server if it already exists
-   DROP SERVER IF EXISTS steampipe_{{.Plugin}};
+   DROP SERVER IF EXISTS postgres_{{.Plugin}};
 
    -- Create the foreign server
-   -- To pass configuration, set it as an OPTION. eg: CREATE SERVER steampipe_{{.Plugin}} FOREIGN DATA WRAPPER steampipe_postgres_{{.Plugin}} OPTIONS (config 'you_config_here');
-   CREATE SERVER steampipe_{{.Plugin}} FOREIGN DATA WRAPPER steampipe_postgres_{{.Plugin}};
+   -- To pass configuration, set it as an OPTION. eg: CREATE SERVER postgres_{{.Plugin}} FOREIGN DATA WRAPPER postgres_postgres_{{.Plugin}} OPTIONS (config 'you_config_here');
+   CREATE SERVER postgres_{{.Plugin}} FOREIGN DATA WRAPPER postgres_postgres_{{.Plugin}};
 
    -- Drop the schema if it already exists
    DROP SCHEMA IF EXISTS {{.Plugin}} CASCADE;
@@ -45,7 +45,7 @@ Before proceeding with the installation, ensure that you have:
    COMMENT ON SCHEMA {{.Plugin}} IS 'steampipe {{.Plugin}} fdw';
 
    -- Import the foreign schema
-   IMPORT FOREIGN SCHEMA {{.Plugin}} FROM SERVER steampipe_{{.Plugin}} INTO {{.Plugin}};
+   IMPORT FOREIGN SCHEMA {{.Plugin}} FROM SERVER postgres_{{.Plugin}} INTO {{.Plugin}};
    ```
 
 ## Post-Installation

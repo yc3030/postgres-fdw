@@ -78,20 +78,20 @@ confirm_and_install() {
     EXTDIR=$("$PG_DIR/bin/pg_config" --sharedir)/extension/
 
     # Copy the files to the PostgreSQL installation directory
-    cp steampipe_postgres_{{.Plugin}}.so "$LIBDIR"
-    cp steampipe_postgres_{{.Plugin}}.control "$EXTDIR"
-    cp steampipe_postgres_{{.Plugin}}--1.0.sql "$EXTDIR"
+    cp postgres_postgres_{{.Plugin}}.so "$LIBDIR"
+    cp postgres_postgres_{{.Plugin}}.control "$EXTDIR"
+    cp postgres_postgres_{{.Plugin}}--1.0.sql "$EXTDIR"
 
     # Check if the files were copied correctly
     if [ $? -eq 0 ]; then
       echo ""
-      echo "Successfully installed steampipe_postgres_{{.Plugin}} extension!"
+      echo "Successfully installed postgres_postgres_{{.Plugin}} extension!"
       echo ""
       echo "Files have been copied to:"
       echo "- Library directory: ${LIBDIR}"
       echo "- Extension directory: ${EXTDIR}"
     else
-      echo "Failed to install steampipe_postgres_{{.Plugin}} extension. Please check permissions and try again."
+      echo "Failed to install postgres_postgres_{{.Plugin}} extension. Please check permissions and try again."
       exit 1
     fi
     exit 0
